@@ -1,1 +1,1 @@
-#Next.js, GraphQL, Prisma
+#Next.js, GraphQL, Prisma, SASS, Bulma

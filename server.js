@@ -62,6 +62,7 @@ const typeDefs = `
 
   type Mutation {
     createUser(name: String!, email: String!): User!
+    postImage(title: String!, author: ID!, published: Boolean!): Image!
   }
 
   type User {
@@ -76,8 +77,8 @@ const typeDefs = `
     author: User!
     title: String!
     published: Boolean!
-    comments: [String]!
-    likes: Int!
+    comments: [String!]
+    likes: Int
   }
 `;
 const resolvers = {
@@ -96,9 +97,8 @@ const resolvers = {
   Mutation: {
     createUser(parent, args, ctx, info) {
       const emailTaken = users.some((user) => user.email === args.email);
-      if (emailTaken) {
-        throw new Error('Email already taken');
-      }
+
+      if (emailTaken) throw new Error('Email already taken');
 
       const user = {
         id: uuidv4(),
@@ -109,6 +109,22 @@ const resolvers = {
       users.push(user);
 
       return user;
+    },
+    postImage(parent, args, ctx, info) {
+      const userExists = users.some((user) => user.id === args.author);
+
+      if (!userExists) throw new Error('User not valid');
+
+      const image = {
+        id: uuidv4(),
+        title: args.title,
+        published: args.published,
+        author: args.author,
+      };
+
+      images.push(image);
+
+      return image;
     },
   },
   Image: {
