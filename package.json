@@ -1,0 +1,22 @@
+{
+  "name": "smartstock",
+  "version": "0.0.1",
+  "description": "Social Platform connecting artists and consumers",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "cross-env NODE_ENV=production node server.js"
+  },
+  "keywords": [
+    "smartstock"
+  ],
+  "author": "Domen Lisjak",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "next": "^9.0.6",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  }
+}
