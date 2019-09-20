@@ -4,7 +4,7 @@
   "description": "Social Platform connecting artists and consumers",
   "main": "server.js",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "nodemon server.js",
     "build": "next build",
     "start": "cross-env NODE_ENV=production node server.js"
   },
@@ -15,11 +15,18 @@
   "license": "ISC",
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "bulma": "^0.7.5",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "graphql-yoga": "^1.18.3",
     "next": "^9.0.6",
+    "next-routes": "^1.4.2",
     "node-sass": "^4.12.0",
+    "nodemon": "^1.19.2",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "uuidv4": "^5.0.1"
   }
 }
